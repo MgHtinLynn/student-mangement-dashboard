@@ -16,7 +16,12 @@ const Login = ({csrfToken}: propLogin) => {
     const err = router.query["error"] ?? false;
 
 
-    const {reset, handleSubmit, register, formState: {isSubmitSuccessful},} = useForm();
+    const {reset, handleSubmit, register, formState: {isSubmitSuccessful}} = useForm({
+        defaultValues: {
+            email: "admin@genius.com",
+            password: "password"
+        }
+    });
 
     const [isLoading, setIsLoading] = useState(false);
 

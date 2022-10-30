@@ -93,7 +93,7 @@ export const authOptions: NextAuthOptions = {
     // https://next-auth.js.org/configuration/callbacks
     callbacks: {
         async signIn({user, account, profile, email, credentials}) {
-            console.log('user', user)
+            //console.log('user', user)
             return true;
         },
         async redirect({url, baseUrl}) {
