@@ -28,7 +28,7 @@ async function findById({path, token}: params) {
     console.log('fetchObject', fetchObject)
 
     const respond = await fetch( process.env.BASE_URL + path, fetchObject)
-    console.log('respond')
+
     if (respond.ok) {
         return respond.json()
     } else {
