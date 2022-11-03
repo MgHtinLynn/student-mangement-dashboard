@@ -6,15 +6,11 @@ import { fetchWrapper } from "@utils/fetch-wrapper"
 import { GetServerSideProps } from "next"
 import SubjectForm from "@components/view/subjects/subject.form";
 import { ITeacher } from "@models/subjects";
-import { ILectureList, ILectures } from "@models/lecture";
+import { ILectures } from "@models/lecture";
 
 type Props = {
     teachers: ITeacher[],
     lectures: ILectures[]
-}
-
-interface IStatus {
-    resultStatus: boolean
 }
 
 const Create = ({teachers, lectures}: Props) => {

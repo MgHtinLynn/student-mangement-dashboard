@@ -6,7 +6,7 @@ import Link from "next/link"
 import LectureTable from "@components/view/lectures/lecture.table"
 import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
-import { ILectureList, ILectures } from "@models/lecture";
+import { ILectureList } from "@models/lecture"
 
 const limitIndex = 20
 const pageIndex = 1

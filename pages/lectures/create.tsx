@@ -4,15 +4,11 @@ import { unstable_getServerSession } from "next-auth/next"
 import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
 import { GetServerSideProps } from "next"
-import LectureForm from "@components/view/lectures/lecture.form";
-import { ITeacher } from "@models/lecture";
+import LectureForm from "@components/view/lectures/lecture.form"
+import { ITeacher } from "@models/lecture"
 
 type Props = {
     teachers: ITeacher[]
-}
-
-interface IStatus {
-    resultStatus: boolean
 }
 
 const Create = ({teachers}: Props) => {

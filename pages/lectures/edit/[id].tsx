@@ -3,12 +3,9 @@ import Layout from "../../../components/layout"
 import { GetServerSideProps } from "next"
 import { unstable_getServerSession } from "next-auth/next"
 import { fetchWrapper } from "@utils/fetch-wrapper"
-import UserForm from "@components/view/users/user.form"
 import { authOptions } from "../../api/auth/[...nextauth]"
-import { IUser } from "@models/user"
-import { PropsRole } from "@models/role"
-import LectureForm from "@components/view/lectures/lecture.form";
-import { ILecture, ITeacher } from "@models/lecture";
+import LectureForm from "@components/view/lectures/lecture.form"
+import { ILecture, ITeacher } from "@models/lecture"
 
 interface Props {
     lecture: ILecture

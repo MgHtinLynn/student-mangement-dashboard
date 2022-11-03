@@ -6,15 +6,14 @@ import {
     ChevronRightIcon,
     BuildingOfficeIcon,
 } from '@heroicons/react/20/solid'
-import { useSession } from "next-auth/react"
 import Layout from "../components/layout"
 import { classNames } from "@utils/helper"
-import { GetServerSideProps } from "next";
-import { unstable_getServerSession } from "next-auth/next";
-import { authOptions } from "./api/auth/[...nextauth]";
+import { GetServerSideProps } from "next"
+import { unstable_getServerSession } from "next-auth/next"
+import { authOptions } from "./api/auth/[...nextauth]"
 import Image from 'next/image'
-import { fetchWrapper } from "@utils/fetch-wrapper";
-import { IUser } from "@models/user";
+import { fetchWrapper } from "@utils/fetch-wrapper"
+import { IUser } from "@models/user"
 
 
 const transactions = [
@@ -55,8 +54,6 @@ export default function Dashboard({total, activeCount, user}: propDashboard) {
         {name: 'Today Attendance', href: '#', icon: ScaleIcon, amount: '$30,659.45'},
         // More items...
     ]
-
-    const {data: session, status} = useSession()
 
     return (
         <>
@@ -173,7 +170,7 @@ export default function Dashboard({total, activeCount, user}: propDashboard) {
                         Recent activity
                     </h2>
 
-                    {/* Activity list (smallest breakpoint only) */}
+                    {/* Activity list (the smallest breakpoint only) */}
                     <div className="shadow sm:hidden">
                         <ul role="list"
                             className="mt-2 divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
