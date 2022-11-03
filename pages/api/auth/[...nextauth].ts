@@ -101,6 +101,9 @@ export const authOptions: NextAuthOptions = {
         },
         async session({session, token, user}) {
             session.accessToken = token?.accessToken || null;
+            if (session?.user) {
+                session.authId = token.sub;
+            }
             session.user = token
             return Promise.resolve(session);
         },

@@ -142,7 +142,7 @@ export default function DataTable<T extends MinTableItem>(props: IProps<T>) {
                             <tr key={key}>
                                 { props.editAction && (
                                     <td className="relative whitespace-nowrap py-4 pl-4 text-sm font-medium">
-                                        <Link href={`/users/edit/${item.id}`}>
+                                        <Link href={`${props.endpoint}/edit/${item.id}`}>
                                             <button className="text-indigo-600 hover:text-indigo-900">
                                                 Edit<span className="sr-only">, {item.id}</span>
                                             </button>

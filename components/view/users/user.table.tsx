@@ -121,7 +121,7 @@ export default function UserTable({users, total}: Props) {
                                                        width="50"
                                                        height="50"
                                                        src={item.profile_url}
-                                                       alt={item.email}/>
+                                                       alt={item.email ?? ''}/>
                                             ) : (
                                                 <UserCircleIcon/>
                                             )

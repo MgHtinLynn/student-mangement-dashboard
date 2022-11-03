@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react'
+import React, { Fragment, ReactNode } from 'react'
 import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
@@ -7,6 +7,7 @@ import { Button } from '@components/frontend/components/Button'
 import { Container } from '@components/frontend/components/Container'
 import { Logo } from '@components/frontend/components/Logo'
 import { NavLink } from '@components/frontend/components/NavLink'
+import Image from "next/image";
 
 interface propHeader {
     href: string,
@@ -104,8 +105,17 @@ export function Header() {
             <Container>
                 <nav className="relative z-50 flex justify-between">
                     <div className="flex items-center md:gap-x-12">
-                        <Link href="#" aria-label="Home">
-                            <Logo className="h-10 w-auto"/>
+                        <Link href="/" aria-label="Home">
+                            <div className="flex space-x-2">
+                                <Image
+                                    className="mx-auto h-12 w-auto"
+                                    src="/images/genius.svg"
+                                    alt="Workflow"
+                                    width="80"
+                                    height="80"
+                                />
+                                <h1 className="pt-2 font-semibold text-2xl">Genius</h1>
+                            </div>
                         </Link>
                         <div className="hidden md:flex md:gap-x-6">
                             <NavLink href="#features">Features</NavLink>

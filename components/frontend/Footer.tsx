@@ -3,13 +3,27 @@ import Link from 'next/link'
 import { Container }  from '@components/frontend/components/Container'
 import { Logo } from '@components/frontend/components/Logo'
 import { NavLink } from '@components/frontend/components/NavLink'
+import Image from "next/image";
+import React from "react";
 
 export function Footer() {
   return (
     <footer className="bg-slate-50">
       <Container>
         <div className="py-16">
-          <Logo className="mx-auto h-10 w-auto" />
+          {/*<Logo className="mx-auto h-10 w-auto" />*/}
+          <div>
+            <div className="flex justify-center space-x-2">
+              <Image
+                  className="h-12 w-auto"
+                  src="/images/genius.svg"
+                  alt="Workflow"
+                  width="80"
+                  height="80"
+              />
+              <h1 className="pt-2 font-semibold text-2xl">Genius</h1>
+            </div>
+          </div>
           <nav className="mt-10 text-sm" aria-label="quick links">
             <div className="-my-1 flex justify-center gap-x-6">
               <NavLink href="#features">Features</NavLink>
@@ -23,7 +37,7 @@ export function Footer() {
             <Link
               href="https://twitter.com"
               className="group"
-              aria-label="TaxPal on Twitter"
+              aria-label="Genius on Twitter"
             >
               <svg
                 aria-hidden="true"
@@ -35,7 +49,7 @@ export function Footer() {
             <Link
               href="https://github.com"
               className="group"
-              aria-label="TaxPal on GitHub"
+              aria-label="Genius on GitHub"
             >
               <svg
                 aria-hidden="true"
@@ -46,7 +60,7 @@ export function Footer() {
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-500 sm:mt-0">
-            Copyright &copy; {new Date().getFullYear()} TaxPal. All rights
+            Copyright &copy; {new Date().getFullYear()} Genius. All rights
             reserved.
           </p>
         </div>

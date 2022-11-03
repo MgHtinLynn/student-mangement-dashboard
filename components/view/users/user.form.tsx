@@ -63,8 +63,6 @@ export default function UserForm({user, roles}: IProps) {
             body: formData
         });
 
-        console.log('response', response)
-
         const body: propBody = await response.json() as { status: 'ok' | 'fail', message: string, url: string };
 
         setValue("profile_url", body.url)
@@ -245,7 +243,7 @@ export default function UserForm({user, roles}: IProps) {
                                         >
                                             {
                                                 roles?.map(list => (
-                                                    <option value={list?.name} key={list?.name}>{list?.name}</option>))
+                                                    <option className="uppercase" value={list?.name} key={list?.name}>{list?.name}</option>))
                                             }
 
                                         </select>

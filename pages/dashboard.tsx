@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { ScaleIcon, UserGroupIcon, UsersIcon } from '@heroicons/react/24/outline'
+import { ScaleIcon, UserGroupIcon, UsersIcon, XCircleIcon } from '@heroicons/react/24/outline'
 import {
     BanknotesIcon,
     CheckCircleIcon,
@@ -13,13 +13,10 @@ import { GetServerSideProps } from "next";
 import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "./api/auth/[...nextauth]";
 import Image from 'next/image'
+import { fetchWrapper } from "@utils/fetch-wrapper";
+import { IUser } from "@models/user";
 
-const cards = [
-    {name: 'Active User', href: '/users', icon: UserGroupIcon, amount: '$30,659.45'},
-    {name: 'Total User', href: '/users', icon: UsersIcon, amount: '$30,659.45'},
-    {name: 'Today Attendance', href: '#', icon: ScaleIcon, amount: '$30,659.45'},
-    // More items...
-]
+
 const transactions = [
     {
         id: 1,
@@ -38,13 +35,26 @@ interface propStatusStyle {
     [key: string]: string;
 }
 
-const statusStyles:propStatusStyle = {
+const statusStyles: propStatusStyle = {
     success: 'bg-green-100 text-green-800',
     processing: 'bg-yellow-100 text-yellow-800',
     failed: 'bg-gray-100 text-gray-800',
 }
 
-export default function Dashboard() {
+interface propDashboard {
+    total: number,
+    activeCount: number,
+    user: IUser
+}
+
+export default function Dashboard({total, activeCount, user}: propDashboard) {
+
+    const cards = [
+        {name: 'Active User', href: '/users', icon: UserGroupIcon, amount: activeCount},
+        {name: 'Total User', href: '/users', icon: UsersIcon, amount: total},
+        {name: 'Today Attendance', href: '#', icon: ScaleIcon, amount: '$30,659.45'},
+        // More items...
+    ]
 
     const {data: session, status} = useSession()
 
@@ -69,7 +79,7 @@ export default function Dashboard() {
                                                 alt=""
                                             />
                                             <h1 className="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:leading-9 sm:truncate">
-                                                Good morning, Emilia Birch
+                                                Good morning, {user.name}
                                             </h1>
                                         </div>
                                         <dl className="mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap">
@@ -82,13 +92,24 @@ export default function Dashboard() {
                                                 Duke street studio
                                             </dd>
                                             <dt className="sr-only">Account status</dt>
-                                            <dd className="mt-3 flex items-center text-sm text-gray-500 font-medium sm:mr-6 sm:mt-0 capitalize">
-                                                <CheckCircleIcon
-                                                    className="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
-                                                    aria-hidden="true"
-                                                />
-                                                Verified account
-                                            </dd>
+                                            {
+                                                user.active ? (
+                                                    <dd className="mt-3 flex items-center text-sm text-gray-500 font-medium sm:mr-6 sm:mt-0 capitalize">
+                                                        <CheckCircleIcon
+                                                            className="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
+                                                            aria-hidden="true"
+                                                        />
+                                                        Verified account
+                                                    </dd>) : (
+                                                    <dd className="mt-3 flex items-center text-sm text-gray-500 font-medium sm:mr-6 sm:mt-0 capitalize">
+                                                        <XCircleIcon
+                                                            className="flex-shrink-0 mr-1.5 h-5 w-5 text-red-400"
+                                                            aria-hidden="true"
+                                                        />
+                                                        Un-Verified account
+                                                    </dd>)
+                                            }
+
                                         </dl>
                                     </div>
                                 </div>
@@ -315,11 +336,19 @@ export default function Dashboard() {
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
     const session = await unstable_getServerSession(context.req, context.res, authOptions)
-    console.log('session', session)
+
     const accessToken = session?.accessToken || null
 
+    const authId = session?.authId ?? null
+
+    const userApi = `/dashboard/${authId}`
+
+    const data = await fetchWrapper.findById({path: userApi, token: accessToken}).then(resp => resp.data)
+
+    console.log('data', data)
     // Pass data to the page via props
-    return {props: {}}
+    return {props: {total: data.total, activeCount: data.activeCount, user: data.user}}
+    //return {props: { total: 0, activeCount: 0, user: {}}}
 }
 
 Dashboard.getLayout = function getLayout(page: ReactElement) {
