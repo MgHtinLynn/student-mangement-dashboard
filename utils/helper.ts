@@ -8,3 +8,7 @@ export function transformQueryString(q: any) {
     textStr = (textStr) ? `?${textStr}` : ''
     return textStr
 }
+
+export function permissionScope(permission: string[], role: string): boolean {
+    return permission.includes('*') || (!permission.includes('*') && permission.includes(role));
+}

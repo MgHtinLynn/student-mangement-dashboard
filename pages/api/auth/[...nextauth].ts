@@ -105,6 +105,7 @@ export const authOptions: NextAuthOptions = {
                 session.authId = token.sub;
             }
             session.user = token
+
             return Promise.resolve(session);
         },
 
@@ -113,6 +114,8 @@ export const authOptions: NextAuthOptions = {
             if (user) {
                 // @ts-ignore
                 token.accessToken = user.accessToken || null
+                token.id = user.id || null
+                token.role = user.role || null
             }
 
             return Promise.resolve(token);

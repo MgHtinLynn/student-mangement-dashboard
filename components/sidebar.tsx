@@ -8,6 +8,8 @@ import { secondaryNavigation } from "./router/secondary.router"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import Image from 'next/image'
+import { permissionScope } from "@utils/helper";
+import { useSession } from "next-auth/react";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -22,6 +24,9 @@ export default function Sidebar({sidebarOpen, setSidebarOpen } : propSideBar) {
 
     const router = useRouter();
     const currentRoute = router.pathname;
+    const session = useSession();
+
+    const userProfile = session.data?.user;
 
     return (
         <>
@@ -41,7 +46,7 @@ export default function Sidebar({sidebarOpen, setSidebarOpen } : propSideBar) {
                     <nav className="mt-5 flex-1 flex flex-col divide-y divide-cyan-800 overflow-y-auto"
                          aria-label="Sidebar">
                         <div className="px-2 space-y-1">
-                            {mainNavigation.map((item) => (
+                            {mainNavigation.filter((menu) => permissionScope(menu.permission, userProfile?.role!)).map((item) => (
                                 <Link href={item.href} key={item.name} className={classNames(
                                     item.href === currentRoute ? 'bg-cyan-800 text-white' : 'text-cyan-100 hover:text-white hover:bg-cyan-600',
                                     'group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md'
