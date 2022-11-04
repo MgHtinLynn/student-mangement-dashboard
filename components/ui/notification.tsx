@@ -7,10 +7,18 @@ import { InboxIcon } from '@heroicons/react/24/outline'
 interface propNotification {
     show: boolean,
     status: boolean,
+    title?: string,
+    message?: string,
     setShow: (value: boolean) => void;
 }
 
-export default function Notification({show, setShow, status}: propNotification) {
+export default function Notification({
+                                         show,
+                                         setShow,
+                                         status,
+                                         title = "Successfully saved!",
+                                         message = "Anyone with a link can now view this file."
+                                     }: propNotification) {
 
     return status ? (
         <>
@@ -40,9 +48,8 @@ export default function Notification({show, setShow, status}: propNotification) 
                                         <CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true"/>
                                     </div>
                                     <div className="ml-3 w-0 flex-1 pt-0.5">
-                                        <p className="text-sm font-medium text-gray-900">Successfully saved!</p>
-                                        <p className="mt-1 text-sm text-gray-500">Anyone with a link can now view this
-                                            file.</p>
+                                        <p className="text-sm font-medium text-gray-900">{ title }</p>
+                                        <p className="mt-1 text-sm text-gray-500">{ message }</p>
                                     </div>
                                     <div className="ml-4 flex flex-shrink-0">
                                         <button

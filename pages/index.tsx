@@ -10,6 +10,7 @@ import { Faqs } from '@components/frontend/Faqs'
 import { Footer } from '@components/frontend/Footer'
 import Head from "next/head"
 import FrontendLayout from "@components/frontend.layout"
+import { ContactUs } from "@components/frontend/ContactUs";
 
 
 const Home = () =>  {
@@ -32,6 +33,7 @@ const Home = () =>  {
                 <Testimonials />
                 <Pricing />
                 <Faqs />
+                <ContactUs/>
             </main>
             <Footer />
         </>
