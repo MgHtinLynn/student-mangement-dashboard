@@ -47,11 +47,11 @@ const Users = ({lectures, total}: ILectureList) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
     const session = await unstable_getServerSession(context.req, context.res, authOptions)
-    console.log('session', session)
+    //console.log('session', session)
     const accessToken = session?.accessToken || null
     const api = `/lectures?page=${pageIndex}&limit=${limitIndex}`
 
-    console.log('accessToken', accessToken)
+    //console.log('accessToken', accessToken)
 
     // Fetch data from external API
     const lectures = await fetchWrapper.fetchDataPagination({path: api, token: accessToken})

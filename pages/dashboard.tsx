@@ -342,7 +342,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     const data = await fetchWrapper.findById({path: userApi, token: accessToken}).then(resp => resp.data)
 
-    console.log('data', data)
+    //console.log('data', data)
     // Pass data to the page via props
     return {props: {total: data.total, activeCount: data.activeCount, user: data.user}}
     //return {props: { total: 0, activeCount: 0, user: {}}}

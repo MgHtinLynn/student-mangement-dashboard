@@ -16,7 +16,7 @@ interface Props {
 }
 
 const Update = ({teachers, lectures , subject}: Props) => {
-    console.log('subject', subject)
+    //console.log('subject', subject)
     return (
         <main className="flex-1 pb-8">
             <div className="px-4 sm:px-6 lg:px-8">

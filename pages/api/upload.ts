@@ -56,7 +56,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             }
         };
 
-        console.log('params', params)
+        //console.log('params', params)
 
         s3.upload(params).send((err, data) => {
             if (err) {
