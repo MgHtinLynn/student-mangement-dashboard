@@ -12,7 +12,7 @@ const limitIndex = 20
 const pageIndex = 1
 
 
-const Users = ({lectures, total}: ILectureList) => {
+const Lectures = ({lectures, total}: ILectureList) => {
 
     return (
         <main className="flex-1 pb-8">
@@ -60,7 +60,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {props: {lectures: lectures.data, total: lectures.total}}
 }
 
-Users.getLayout = function getLayout(page: ReactElement) {
+Lectures.getLayout = function getLayout(page: ReactElement) {
     return (
         <Layout title="lecture List">
             {page}
@@ -68,4 +68,4 @@ Users.getLayout = function getLayout(page: ReactElement) {
     )
 }
 
-export default Users
+export default Lectures
