@@ -51,7 +51,7 @@ export function ContactUs() {
                 <section className="relative bg-white" aria-labelledby="contact-heading">
                     <div className="absolute h-1/2 w-full bg-stone-50" aria-hidden="true"/>
                     {/* Decorative dot pattern */}
-                    <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="hidden lg:block relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <svg
                             className="absolute top-0 right-0 z-0 -translate-y-16 translate-x-1/2 transform sm:translate-x-1/4 md:-translate-y-24 lg:-translate-y-72"
                             width={404}
