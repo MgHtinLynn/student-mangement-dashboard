@@ -4,9 +4,9 @@ import { unstable_getServerSession } from "next-auth/next"
 import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
 import { GetServerSideProps } from "next"
-import SubjectForm from "@components/view/subjects/subject.form";
-import { ITeacher } from "@models/subjects";
-import { ILectures } from "@models/lecture";
+import SubjectForm from "@components/view/subjects/subject.form"
+import { ITeacher } from "@models/subjects"
+import { ILectures } from "@models/lecture"
 
 type Props = {
     teachers: ITeacher[],

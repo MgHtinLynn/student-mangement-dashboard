@@ -2,8 +2,8 @@ import DataTable from "@components/data-table/index"
 import moment from "moment"
 import { useSession } from "next-auth/react"
 import { IExamResultList, IExamResults } from "@models/examResult"
-import { classNames } from "@utils/helper";
-import Link from "next/link";
+import { classNames } from "@utils/helper"
+import Link from "next/link"
 
 const contactListingColumns = [
     {

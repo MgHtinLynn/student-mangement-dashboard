@@ -2,7 +2,7 @@ import DataTable from "@components/data-table/index"
 import moment from "moment"
 import { useSession } from "next-auth/react"
 import { ITranscriptList, ITranscripts } from "@models/transcripts"
-import Link from "next/link";
+import Link from "next/link"
 
 const contactListingColumns = [
     {

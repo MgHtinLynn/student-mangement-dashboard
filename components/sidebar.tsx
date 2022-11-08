@@ -8,8 +8,8 @@ import { secondaryNavigation } from "./router/secondary.router"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import Image from 'next/image'
-import { permissionScope } from "@utils/helper";
-import { useSession } from "next-auth/react";
+import { permissionScope } from "@utils/helper"
+import { useSession } from "next-auth/react"
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')

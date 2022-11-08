@@ -5,9 +5,9 @@ import { GetServerSideProps } from "next"
 import Link from "next/link"
 import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
-import ExamResultTable from "@components/view/exam-results/examResult.table";
-import { IExamResultList } from "@models/examResult";
-import { useSession } from "next-auth/react";
+import ExamResultTable from "@components/view/exam-results/examResult.table"
+import { IExamResultList } from "@models/examResult"
+import { useSession } from "next-auth/react"
 
 const limitIndex = 20
 const pageIndex = 1

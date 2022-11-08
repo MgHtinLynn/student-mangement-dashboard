@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import Layout from "../../../components/layout"
+import Layout from "@components/layout"
 import { GetServerSideProps } from "next"
 import { unstable_getServerSession } from "next-auth/next"
 import { fetchWrapper } from "@utils/fetch-wrapper"

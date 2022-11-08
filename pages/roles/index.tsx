@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import Layout from "../../components/layout"
+import Layout from "@components/layout"
 import { unstable_getServerSession } from "next-auth/next"
 import { GetServerSideProps } from "next"
 import RoleTable from "@components/view/roles/role.table"

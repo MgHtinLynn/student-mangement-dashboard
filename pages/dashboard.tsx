@@ -1,21 +1,18 @@
 import { ReactElement } from 'react'
 import { ScaleIcon, UserGroupIcon, UsersIcon, XCircleIcon } from '@heroicons/react/24/outline'
 import {
-    BanknotesIcon,
     CheckCircleIcon,
-    ChevronRightIcon,
     BuildingOfficeIcon,
 } from '@heroicons/react/20/solid'
-import Layout from "../components/layout"
-import { classNames } from "@utils/helper"
+import Layout from "@components/layout"
 import { GetServerSideProps } from "next"
 import { unstable_getServerSession } from "next-auth/next"
 import { authOptions } from "./api/auth/[...nextauth]"
 import Image from 'next/image'
 import { fetchWrapper } from "@utils/fetch-wrapper"
 import { IUser } from "@models/user"
-import { IAttendanceList, IAttendances } from "@models/attendance";
-import AttendanceTable from "@components/view/attendances/attendance.table";
+import { IAttendances } from "@models/attendance"
+import AttendanceTable from "@components/view/attendances/attendance.table"
 
 
 const transactions = [

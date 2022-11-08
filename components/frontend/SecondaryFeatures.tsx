@@ -2,7 +2,6 @@ import { ReactElement, useId } from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
-
 import { Container } from '@components/frontend/components/Container'
 import screenshotContacts from '@components/images/screenshots/contacts.png'
 import screenshotInventory from '@components/images/screenshots/inventory.png'

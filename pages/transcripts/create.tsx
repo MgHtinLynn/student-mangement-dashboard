@@ -5,8 +5,8 @@ import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
 import { GetServerSideProps } from "next"
 import { IStudent } from "@models/examResult"
-import { ILectures } from "@models/lecture";
-import TranscriptForm from "@components/view/transcript/transcript.form";
+import { ILectures } from "@models/lecture"
+import TranscriptForm from "@components/view/transcript/transcript.form"
 
 type Props = {
     students: IStudent[],

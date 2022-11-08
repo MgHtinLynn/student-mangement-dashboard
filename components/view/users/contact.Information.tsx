@@ -1,5 +1,5 @@
-import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
-import React from "react";
+import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline"
+import React from "react"
 
 export default function ContactInformation () {
     return (

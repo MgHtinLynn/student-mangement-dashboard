@@ -1,5 +1,4 @@
 import Image from 'next/image'
-
 import { Container }  from '@components/frontend/components/Container'
 import backgroundImage from '@components/images/background-faqs.jpg'
 

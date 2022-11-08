@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import Layout from "../../components/layout"
+import Layout from "@components/layout"
 import { unstable_getServerSession } from "next-auth/next"
 import { GetServerSideProps } from "next"
 import Link from "next/link"
@@ -7,7 +7,7 @@ import LectureTable from "@components/view/lectures/lecture.table"
 import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
 import { ILectureList } from "@models/lecture"
-import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react"
 
 const limitIndex = 20
 const pageIndex = 1

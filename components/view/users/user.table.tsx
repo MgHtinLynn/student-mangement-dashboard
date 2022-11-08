@@ -1,7 +1,7 @@
 import DataTable from "@components/data-table/index"
 import moment from "moment"
 import { classNames } from "@utils/helper"
-import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react"
 import { UserCircleIcon } from "@heroicons/react/20/solid"
 import Image from 'next/image'
 

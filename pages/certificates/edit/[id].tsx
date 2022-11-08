@@ -5,9 +5,9 @@ import { unstable_getServerSession } from "next-auth/next"
 import { fetchWrapper } from "@utils/fetch-wrapper"
 import { authOptions } from "../../api/auth/[...nextauth]"
 import { IStudent } from "@models/examResult"
-import CertificateForm from "@components/view/certificate/certificate.form";
-import { ILectures } from "@models/lecture";
-import { ICertificate } from "@models/certificate";
+import CertificateForm from "@components/view/certificate/certificate.form"
+import { ILectures } from "@models/lecture"
+import { ICertificate } from "@models/certificate"
 
 interface Props {
     certificate: ICertificate

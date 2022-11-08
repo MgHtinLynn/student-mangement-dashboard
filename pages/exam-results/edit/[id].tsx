@@ -5,8 +5,8 @@ import { unstable_getServerSession } from "next-auth/next"
 import { fetchWrapper } from "@utils/fetch-wrapper"
 import { authOptions } from "../../api/auth/[...nextauth]"
 import { IExamResult, IStudent } from "@models/examResult"
-import { ISubject } from "@models/subjects";
-import ExamResultForm from "@components/view/exam-results/examResult.form";
+import { ISubject } from "@models/subjects"
+import ExamResultForm from "@components/view/exam-results/examResult.form"
 
 interface Props {
     examResult: IExamResult

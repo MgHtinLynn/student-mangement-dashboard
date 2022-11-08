@@ -3,8 +3,8 @@ import Head from "next/head"
 import FrontendLayout from "@components/frontend.layout"
 import { GetServerSideProps } from "next"
 import { fetchWrapper } from "@utils/fetch-wrapper"
-import UserChangePassword from "@components/view/users/user.changePassword";
-import { IUser } from "@models/user";
+import UserChangePassword from "@components/view/users/user.changePassword"
+import { IUser } from "@models/user"
 
 interface IChangePassword {
     user: IUser

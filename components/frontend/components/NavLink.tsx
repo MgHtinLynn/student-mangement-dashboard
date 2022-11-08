@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ReactNode } from "react";
+import { ReactNode } from "react"
 
 interface propNavLink {
   href: string,

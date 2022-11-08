@@ -5,9 +5,9 @@ import { GetServerSideProps } from "next"
 import Link from "next/link"
 import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
-import { ITranscriptList } from "@models/transcripts";
-import TranscriptTable from "@components/view/transcript/transcript.table";
-import { useSession } from "next-auth/react";
+import { ITranscriptList } from "@models/transcripts"
+import TranscriptTable from "@components/view/transcript/transcript.table"
+import { useSession } from "next-auth/react"
 
 const limitIndex = 20
 const pageIndex = 1

@@ -1,10 +1,10 @@
-import React, { useRef, useState } from "react"
+import React, { useState } from "react"
 import { useRouter } from "next/router"
 import { ISubjects, ITeacher, UpdateSubject } from "@models/subjects"
 import { fetchWrapper } from "@utils/fetch-wrapper"
 import { FormProvider, useForm } from "react-hook-form"
 import Notification from "@components/ui/notification"
-import { ILectures } from "@models/lecture";
+import { ILectures } from "@models/lecture"
 
 interface IProps {
     subject?: ISubjects,

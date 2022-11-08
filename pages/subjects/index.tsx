@@ -1,13 +1,13 @@
 import React, { ReactElement } from "react"
-import Layout from "../../components/layout"
+import Layout from "@components/layout"
 import { unstable_getServerSession } from "next-auth/next"
 import { GetServerSideProps } from "next"
 import Link from "next/link"
 import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
-import SubjectTable from "@components/view/subjects/subject.table";
-import { ISubjectList } from "@models/subjects";
-import { useSession } from "next-auth/react";
+import SubjectTable from "@components/view/subjects/subject.table"
+import { ISubjectList } from "@models/subjects"
+import { useSession } from "next-auth/react"
 
 const limitIndex = 20
 const pageIndex = 1

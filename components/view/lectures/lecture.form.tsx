@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React, { useState } from "react"
 import { useRouter } from "next/router"
 import { ILectures, ITeacher, UpdateLecture } from "@models/lecture"
 import { fetchWrapper } from "@utils/fetch-wrapper"

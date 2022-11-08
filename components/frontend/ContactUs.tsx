@@ -1,4 +1,3 @@
-import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline"
 import { useForm } from "react-hook-form"
 import Notification from "@components/ui/notification";
 import React, { useState } from "react";

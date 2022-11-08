@@ -1,12 +1,11 @@
 import Image from 'next/image'
-
 import { Container } from '@components/frontend/components/Container'
 import avatarImage1 from '@components/images/avatars/avatar-1.png'
 import avatarImage2 from '@components/images/avatars/avatar-2.png'
 import avatarImage3 from '@components/images/avatars/avatar-3.png'
 import avatarImage4 from '@components/images/avatars/avatar-4.png'
 import avatarImage5 from '@components/images/avatars/avatar-5.png'
-import { SVGProps } from "react";
+import { SVGProps } from "react"
 
 const testimonials = [
   [

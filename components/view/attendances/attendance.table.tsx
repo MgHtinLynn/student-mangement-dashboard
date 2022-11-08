@@ -4,7 +4,7 @@ import { classNames } from "@utils/helper"
 import { useSession } from "next-auth/react";
 import { UserCircleIcon } from "@heroicons/react/20/solid"
 import Image from 'next/image'
-import { IAttendance, IAttendanceList, IAttendances } from "@models/attendance";
+import { IAttendanceList, IAttendances } from "@models/attendance"
 
 const contactListingColumns = [
     {

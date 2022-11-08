@@ -4,8 +4,8 @@ import { fetchWrapper } from "@utils/fetch-wrapper"
 import { FormProvider, useForm } from "react-hook-form"
 import Notification from "@components/ui/notification"
 import { IExamResult, IExamResults, IStudent, UpdateExamResult } from "@models/examResult"
-import { ISubject } from "@models/subjects";
-import Link from "next/link";
+import { ISubject } from "@models/subjects"
+import Link from "next/link"
 
 interface IProps {
     examResult?: IExamResults,

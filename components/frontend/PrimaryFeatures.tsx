@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
-
 import { Container } from '@components/frontend/components/Container'
 import backgroundImage from '@components/images/background-features.jpg'
 import dashboard from '@components/images/screenshots/dashboard.png'

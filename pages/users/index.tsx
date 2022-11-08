@@ -1,12 +1,12 @@
 import React, { ReactElement } from "react"
-import Layout from "../../components/layout"
+import Layout from "@components/layout"
 import { unstable_getServerSession } from "next-auth/next"
 import { GetServerSideProps } from "next"
 import Link from "next/link"
 import UserTable from "@components/view/users/user.table"
 import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
-import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react"
 
 type Props = {
     total: number,

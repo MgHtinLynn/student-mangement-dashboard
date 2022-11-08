@@ -5,9 +5,9 @@ import { GetServerSideProps } from "next"
 import Link from "next/link"
 import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
-import CertificateTable from "@components/view/certificate/certificate.table";
-import { ICertificateList } from "@models/certificate";
-import { useSession } from "next-auth/react";
+import CertificateTable from "@components/view/certificate/certificate.table"
+import { ICertificateList } from "@models/certificate"
+import { useSession } from "next-auth/react"
 
 const limitIndex = 20
 const pageIndex = 1

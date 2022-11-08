@@ -4,7 +4,7 @@ import { unstable_getServerSession } from "next-auth/next"
 import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
 import { GetServerSideProps } from "next"
-import ExamResultForm from "@components/view/exam-results/examResult.form";
+import ExamResultForm from "@components/view/exam-results/examResult.form"
 import { IStudent } from "@models/examResult"
 import { ISubject } from "@models/subjects"
 

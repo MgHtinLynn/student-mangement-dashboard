@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { ReactNode } from "react";
+import { ReactNode } from "react"
 
 interface propContainer {
   className?: string,

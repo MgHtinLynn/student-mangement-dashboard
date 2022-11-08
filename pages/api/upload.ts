@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import * as fs from 'fs';
-import aws from "aws-sdk";
+import * as fs from 'fs'
+import aws from "aws-sdk"
 import formidable from "formidable"
-import { now } from "moment";
+import { now } from "moment"
 
 export const config = {
     api: {

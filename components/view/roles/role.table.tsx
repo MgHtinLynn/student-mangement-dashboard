@@ -1,10 +1,7 @@
 import DataTable from "@components/data-table/index"
 import moment from "moment"
 import Link from "next/link"
-import { useSession } from "next-auth/react";
-import { classNames } from "@utils/helper";
-import Image from "next/image";
-import { UserCircleIcon } from "@heroicons/react/20/solid";
+import { useSession } from "next-auth/react"
 
 type Props = {
     total: number,

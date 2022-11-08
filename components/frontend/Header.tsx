@@ -102,7 +102,7 @@ function MobileNavigation() {
 export function Header() {
     const session = useSession();
     const authCheck = session.status !== 'unauthenticated'
-    
+
     return (
         <header className="py-10">
             <Container>

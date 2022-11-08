@@ -1,8 +1,7 @@
 import DataTable from "@components/data-table/index"
 import moment from "moment"
-import Link from "next/link"
-import { useSession } from "next-auth/react";
-import { ILectures, ILectureList } from "@models/lecture";
+import { useSession } from "next-auth/react"
+import { ILectures, ILectureList } from "@models/lecture"
 
 const contactListingColumns = [
     {
