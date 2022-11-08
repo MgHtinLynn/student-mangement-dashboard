@@ -7,5 +7,4 @@ export type User = {
     active: boolean
     CreatedAt: string
     DeletedAt: string | null
-
 }

@@ -51,13 +51,11 @@ export default function SubjectTable({subjects, total}: ISubjectList) {
                     customRenderers={{
                         id: (item) => {
                             return (
-                                <Link
-                                    key={item.id}
-                                    href={`/subjects/${item.id}`}
-                                    className="underline hover:text-purple-500"
-                                >
-                                    {item.id}
-                                </Link>
+                                <div className="flex items-center">
+                                    <div className="ml-4">
+                                        <div className="font-medium text-gray-900">{item.id}</div>
+                                    </div>
+                                </div>
                             );
                         },
                         name: (item) => {

@@ -48,13 +48,11 @@ export default function LectureTable({lectures, total}: ILectureList) {
                     customRenderers={{
                         id: (item) => {
                             return (
-                                <Link
-                                    key={item.id}
-                                    href={`/lectures/${item.id}`}
-                                    className="underline hover:text-purple-500"
-                                >
-                                    {item.id}
-                                </Link>
+                                <div className="flex items-center">
+                                    <div className="ml-4">
+                                        <div className="font-medium text-gray-900">{item.id}</div>
+                                    </div>
+                                </div>
                             );
                         },
                         name: (item) => {

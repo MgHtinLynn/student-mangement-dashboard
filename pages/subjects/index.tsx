@@ -7,13 +7,16 @@ import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
 import SubjectTable from "@components/view/subjects/subject.table";
 import { ISubjectList } from "@models/subjects";
+import { useSession } from "next-auth/react";
 
 const limitIndex = 20
 const pageIndex = 1
 
 
 const Users = ({subjects, total}: ISubjectList) => {
+    const session = useSession();
 
+    const userProfile = session?.data?.user;
     return (
         <main className="flex-1 pb-8">
             <div className="px-4 sm:px-6 lg:px-8">
@@ -24,11 +27,18 @@ const Users = ({subjects, total}: ISubjectList) => {
                             A list of all the users in your account including their name, title, email and role.
                         </p>
                     </div>
-                    <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-                        <Link href="/subjects/create" className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-700 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:w-auto">
-                            Add Subject
-                        </Link>
-                    </div>
+
+                    {
+                        userProfile?.role === 'admin' && (
+
+                            <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+                                <Link href="/subjects/create" className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-700 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:w-auto">
+                                    Add Subject
+                                </Link>
+                            </div>
+                        )
+                    }
+
                 </div>
                 <div className="mt-8 flex flex-col">
                     <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -47,7 +57,16 @@ const Users = ({subjects, total}: ISubjectList) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
     const session = await unstable_getServerSession(context.req, context.res, authOptions)
-    //console.log('session', session)
+
+    if (!session) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        }
+    }
+
     const accessToken = session?.accessToken || null
     const api = `/subjects?page=${pageIndex}&limit=${limitIndex}`
 

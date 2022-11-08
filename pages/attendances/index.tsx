@@ -7,29 +7,14 @@ import UserTable from "@components/view/users/user.table"
 import { authOptions } from "../api/auth/[...nextauth]"
 import { fetchWrapper } from "@utils/fetch-wrapper"
 import { useSession } from "next-auth/react";
-
-type Props = {
-    total: number,
-    users: {
-        id: number
-        name?: string
-        email?: string
-        phone?: string
-        role?: string
-        address?: string
-        profile_url?: string
-        active?: number
-        created_at?: string
-        updated_at?: string
-        deleted_at?: string
-    }[]
-}
+import { IAttendanceList } from "@models/attendance";
+import AttendanceTable from "@components/view/attendances/attendance.table";
 
 const limitIndex = 20
 const pageIndex = 1
 
 
-const Users = ({users, total}: Props) => {
+const Attendances = ({attendances, total}: IAttendanceList) => {
     const session = useSession();
 
     const userProfile = session?.data?.user;
@@ -38,33 +23,18 @@ const Users = ({users, total}: Props) => {
             <div className="px-4 sm:px-6 lg:px-8">
                 <div className="sm:flex sm:items-center">
                     <div className="sm:flex-auto">
-                        <h1 className="text-xl font-semibold text-gray-900">Users</h1>
+                        <h1 className="text-xl font-semibold text-gray-900">Attendance List</h1>
                         <p className="mt-2 text-sm text-gray-700">
-                            A list of all the users in your account including their name, title, email and role.
+                            A list of all the attendance in your account including their name, title, email and subject.
                         </p>
                     </div>
-                    <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-                        {
-                            userProfile?.role === 'admin' && (
 
-                                <Link href="/users/create">
-                                    <button
-                                        type="button"
-                                        className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-700 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:w-auto"
-                                    >
-                                        Add user
-                                    </button>
-                                </Link>
-                            )
-                        }
-
-                    </div>
                 </div>
                 <div className="mt-8 flex flex-col">
                     <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                             <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
-                                <UserTable users={users} total={total}/>
+                                <AttendanceTable attendances={attendances} total={total}/>
                             </div>
                         </div>
                     </div>
@@ -88,23 +58,23 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
 
     const accessToken = session?.accessToken || null
-    const api = `/users?page=${pageIndex}&limit=${limitIndex}`
+    const api = `/attendances?page=${pageIndex}&limit=${limitIndex}`
 
     //console.log('accessToken', accessToken)
 
     // Fetch data from external API
-    const users = await fetchWrapper.fetchDataPagination({path: api, token: accessToken})
+    const attendances = await fetchWrapper.fetchDataPagination({path: api, token: accessToken})
 
     // Pass data to the page via props
-    return {props: {users: users.data, total: users.total}}
+    return {props: {attendances: attendances.data, total: attendances.total}}
 }
 
-Users.getLayout = function getLayout(page: ReactElement) {
+Attendances.getLayout = function getLayout(page: ReactElement) {
     return (
-        <Layout title="User List">
+        <Layout title="Attendances List">
             {page}
         </Layout>
     )
 }
 
-export default Users
+export default Attendances

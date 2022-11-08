@@ -19,8 +19,6 @@ interface IPropUpdate {
     data: ICertificate,
 }
 
-const statusList = ["Pass", "Fail", "Merit", "Distinction"]
-
 interface propBody {
     url: string
 }

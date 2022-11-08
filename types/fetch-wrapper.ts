@@ -6,4 +6,7 @@ export interface URLObj {
 export interface fetchPagination {
     path: string,
     token: string | null
+
+}export interface propFetchData {
+    path: string,
 }

@@ -7,6 +7,7 @@ import { Button } from '@components/frontend/components/Button'
 import { Container } from '@components/frontend/components/Container'
 import { NavLink } from '@components/frontend/components/NavLink'
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 interface propHeader {
     href: string,
@@ -100,6 +101,8 @@ function MobileNavigation() {
 }
 
 export function Header() {
+    const session = useSession();
+
     return (
         <header className="py-10">
             <Container>
@@ -126,7 +129,10 @@ export function Header() {
                     </div>
                     <div className="flex items-center gap-x-5 md:gap-x-8">
                         <div className="hidden md:block">
-                            <NavLink href="/login">Sign in</NavLink>
+                            {
+                                session ? <NavLink href="/dashboard">Dashboard</NavLink> : <NavLink href="/login">Sign in</NavLink>
+                            }
+
                         </div>
                         <Button href="#contact-us" color="blue">
               <span>

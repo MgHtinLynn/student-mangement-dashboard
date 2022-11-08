@@ -7,6 +7,7 @@ import Notification from "@components/ui/notification"
 import Toggle from "@components/ui/toogle"
 import Image from 'next/image'
 import { PropsRole } from "@models/role"
+import { now } from "moment/moment";
 
 interface IProps {
     user?: IUser,
@@ -87,9 +88,16 @@ export default function UserForm({user, roles}: IProps) {
     }
 
     const createUser = async (createUserData: IUser) => {
-
+        createUserData.password = (Math.random() + 1).toString(36).substring(3);
         try {
-            await fetchWrapper.post({path: '/users', body: createUserData})
+            await fetchWrapper.post({path: '/users', body: createUserData}).then(() => {
+                fetch('/api/register', {
+                    method: 'POST',
+                    body: JSON.stringify(createUserData)
+                }).then((res) => {
+                    console.log('res', res)
+                });
+            })
             setResultStatus(true)
             setShowNotification(true)
             await router.push('/users')

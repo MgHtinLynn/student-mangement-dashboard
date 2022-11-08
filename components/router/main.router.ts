@@ -14,7 +14,7 @@ export const mainNavigation = [
     {name: 'Exam Result', href: '/exam-results', icon: ScaleIcon, current: false, permission: ["*"]},
     {name: 'Transcript', href: '/transcripts', icon: CreditCardIcon, current: false, permission: ["*"]},
     {name: 'Certificate', href: '/certificates', icon: CreditCardIcon, current: false, permission: ["*"]},
-    {name: 'Attendance', href: '/attendance', icon: UserGroupIcon, current: false, permission: ["*"]},
+    {name: 'Attendance', href: '/attendances', icon: UserGroupIcon, current: false, permission: ["*"]},
     //{name: 'Rating', href: '/rating', icon: AdjustmentsHorizontalIcon, current: false, permission: ["*"]},
     //{name: 'Assignment', href: '/assignment', icon: AdjustmentsHorizontalIcon, current: false, permission: ["*"]},
     //{name: 'Resource', href: '/resource', icon: AdjustmentsHorizontalIcon, current: false, permission: ["*"]},

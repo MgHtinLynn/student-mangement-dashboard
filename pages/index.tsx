@@ -28,11 +28,9 @@ const Home = () =>  {
             <main>
                 <Hero />
                 <PrimaryFeatures />
-                <SecondaryFeatures />
                 <CallToAction />
                 <Testimonials />
                 <Pricing />
-                <Faqs />
                 <ContactUs/>
             </main>
             <Footer />

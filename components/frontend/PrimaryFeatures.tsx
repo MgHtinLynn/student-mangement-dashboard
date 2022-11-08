@@ -5,35 +5,35 @@ import clsx from 'clsx'
 
 import { Container } from '@components/frontend/components/Container'
 import backgroundImage from '@components/images/background-features.jpg'
-import screenshotExpenses from '@components/images/screenshots/expenses.png'
-import screenshotPayroll from '@components/images/screenshots/payroll.png'
-import screenshotReporting from '@components/images/screenshots/reporting.png'
-import screenshotVatReturns from '@components/images/screenshots/vat-returns.png'
+import dashboard from '@components/images/screenshots/dashboard.png'
+import attendancesList from '@components/images/screenshots/attendances-list.png'
+import examResultsList from '@components/images/screenshots/exam-results-list.png'
+import userList from '@components/images/screenshots/user-list.png'
 
 const features = [
   {
-    title: 'Payroll',
+    title: 'Dashboard',
     description:
-      "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
-    image: screenshotPayroll,
+      "Keep track of everyone's update and whether or not they've been attendance.",
+    image: dashboard,
   },
   {
-    title: 'Claim expenses',
+    title: 'Attendances List',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
-    image: screenshotExpenses,
+      "All of your students organized into one place, as long as you don't mind typing in the data by hand.",
+    image: attendancesList,
   },
   {
-    title: 'VAT handling',
+    title: 'Exam Result',
     description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
-    image: screenshotVatReturns,
+      "We only sell our software to companies who don't have exam result with paper at all, so technically we do all the exam result as soft-copy stuff they need.",
+    image: examResultsList,
   },
   {
-    title: 'Reporting',
+    title: 'User Reporting',
     description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
-    image: screenshotReporting,
+      'Easily export user list (Student, Teacher) where you can do whatever the hell you want with it.',
+    image: userList,
   },
 ]
 

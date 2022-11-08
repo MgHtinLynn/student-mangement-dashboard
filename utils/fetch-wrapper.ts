@@ -1,9 +1,11 @@
-import { fetchPagination, URLObj } from "../types/fetch-wrapper"
+import { fetchPagination, propFetchData, URLObj } from "../types/fetch-wrapper"
 
 export const fetchWrapper = {
     findById,
     fetchDataPagination,
+    fetchData,
     post,
+    patch,
     put,
     delete: _delete
 };
@@ -49,6 +51,27 @@ async function post({path, body}: URLObj) {
         body: JSON.stringify(body)
     }
     const fullUrl = process.env.BASE_URL + path
+    return await fetch(fullUrl, fetchObject)
+        .then((res) => res.json())
+        .then((resp) => resp.data)
+        .catch((error) => {
+            console.log(error)
+        })
+}
+
+async function patch({path, body}: URLObj) {
+    const authHead = await authHeader().then(h => h)
+    const fetchObject = {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            ...authHead
+        },
+        body: JSON.stringify(body)
+    }
+    const fullUrl = process.env.BASE_URL + path
+
     return await fetch(fullUrl, fetchObject)
         .then((res) => res.json())
         .then((resp) => resp.data)
@@ -106,6 +129,25 @@ async function authHeader() {
     const authData = await fetch('/api/auth/jwt').then(res => res.json());
 
     return {Authorization: `Bearer ${authData?.accessToken}`};
+}
+
+async function fetchData({path} : propFetchData) {
+
+    const fetchObject = {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+    };
+
+    const respond = await fetch( process.env.BASE_URL + path, fetchObject)
+    if (respond.ok) {
+        return respond.json()
+    } else {
+        console.log('error', respond)
+        return { data: [], total: 0}
+    }
 }
 
 

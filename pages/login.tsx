@@ -120,11 +120,11 @@ const Login = ({csrfToken}: propLogin) => {
                                     </label>
                                 </div>
 
-                                <div className="text-sm">
-                                    <a href="#" className="font-medium text-cyan-600 hover:text-cyan-500">
-                                        Forgot your password?
-                                    </a>
-                                </div>
+                                {/*<div className="text-sm">*/}
+                                {/*    <a href="#" className="font-medium text-cyan-600 hover:text-cyan-500">*/}
+                                {/*        Forgot your password?*/}
+                                {/*    </a>*/}
+                                {/*</div>*/}
                             </div>
 
                             <div>

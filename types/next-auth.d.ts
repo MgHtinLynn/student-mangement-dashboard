@@ -10,6 +10,7 @@ declare module "next-auth" {
         user?: {
             accessToken?: string | null
             role?: string | null
+            profile_url?: string | null
         } & DefaultSession["user"]
     }
 }
