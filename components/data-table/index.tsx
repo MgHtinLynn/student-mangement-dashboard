@@ -4,9 +4,9 @@ import React, {
     useEffect
 } from 'react';
 import TablePagination from "@components/data-table/table.pagination"
-import { useSession } from "next-auth/react";
-import { fetchData } from "@utils/api";
-import Link from "next/link";
+import { useSession } from "next-auth/react"
+import { fetchData } from "@utils/api"
+import Link from "next/link"
 
 export type QueryConfigType = {
     limit: number;
@@ -30,7 +30,6 @@ export interface TableConfig {
 }
 
 type CustomRenderers<T extends MinTableItem> = Partial<Record<keyof T, (item: T) => React.ReactNode>>;
-type PrimitiveType = string | symbol | number | boolean;
 
 // minimum prop need to provide
 interface MinTableItem {
@@ -64,17 +63,6 @@ interface OrderProp {
 const columnFiltered = (columns: ColumnConfigType[]) => {
     return columns.filter(col => col.visible);
 };
-
-const isPrimitive = (value: any): value is PrimitiveType => {
-    return (
-        (typeof value === 'string') ||
-        (typeof value === 'number') ||
-        (typeof value === 'boolean') ||
-        (typeof value === 'symbol')
-    );
-};
-
-const fetcher = (arg: any, ...args: any) => fetch(arg, ...args).then((res) => res.json()).then((resp) => resp.data)
 
 export default function DataTable<T extends MinTableItem>(props: IProps<T>) {
     const initialColumns = props.defaultConfig.columns ?? [];
@@ -122,9 +110,14 @@ export default function DataTable<T extends MinTableItem>(props: IProps<T>) {
                     <table className="min-w-full divide-y divide-gray-300">
                         <thead className="">
                         <tr className="w-full h-14 text-sm leading-none text-gray-800 focus:outline-none">
-                            <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                                {/* action button */}
-                            </th>
+                            {
+                                props.editAction && (
+                                    <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
+                                        {/* action button */}
+                                    </th>
+                                )
+                            }
+
                             {
                                 columnFiltered(columns || []).map((col, idx) => (
                                     <th key={idx} scope="col" onClick={() => onSort(col)}
