@@ -70,7 +70,9 @@ export default function UserTable({users, total}: Props) {
         queries: null
     }
 
-    const {data: session} = useSession()
+    const session = useSession();
+
+    const userProfile = session?.data?.user;
 
     const handleCreate = () => {
         console.log('handle create')
@@ -80,7 +82,7 @@ export default function UserTable({users, total}: Props) {
         return (
             <div>
                 <DataTable<IUser>
-                    editAction={true}
+                    editAction={userProfile?.role === 'admin'}
                     total={total}
                     endpoint="/users"
                     items={users}

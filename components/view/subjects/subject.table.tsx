@@ -28,7 +28,9 @@ export default function SubjectTable({subjects, total}: ISubjectList) {
         queries: null
     }
 
-    const {data: session} = useSession()
+    const session = useSession();
+
+    const userProfile = session?.data?.user;
 
     const handleCreate = () => {
         console.log('handle create')
@@ -38,7 +40,7 @@ export default function SubjectTable({subjects, total}: ISubjectList) {
         return (
             <div>
                 <DataTable<ISubjects>
-                    editAction={true}
+                    editAction={userProfile?.role === 'admin'}
                     total={total}
                     endpoint="/subjects"
                     items={subjects}

@@ -25,7 +25,9 @@ export default function LectureTable({lectures, total}: ILectureList) {
         queries: null
     }
 
-    const {data: session} = useSession()
+    const session = useSession();
+
+    const userProfile = session?.data?.user;
 
     const handleCreate = () => {
         console.log('handle create')
@@ -35,7 +37,7 @@ export default function LectureTable({lectures, total}: ILectureList) {
         return (
             <div>
                 <DataTable<ILectures>
-                    editAction={true}
+                    editAction={userProfile?.role === 'admin'}
                     total={total}
                     endpoint="/lectures"
                     items={lectures}

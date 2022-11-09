@@ -18,6 +18,6 @@ export const mainNavigation = [
     //{name: 'Rating', href: '/rating', icon: AdjustmentsHorizontalIcon, current: false, permission: ["*"]},
     //{name: 'Assignment', href: '/assignment', icon: AdjustmentsHorizontalIcon, current: false, permission: ["*"]},
     //{name: 'Resource', href: '/resource', icon: AdjustmentsHorizontalIcon, current: false, permission: ["*"]},
-    {name: 'Lecture', href: '/lectures', icon: AdjustmentsHorizontalIcon, current: false, permission: ["admin"]},
-    {name: 'Subject', href: '/subjects', icon: AdjustmentsHorizontalIcon, current: false, permission: ["admin"]},
+    {name: 'Lecture', href: '/lectures', icon: AdjustmentsHorizontalIcon, current: false, permission: ["admin", "teacher"]},
+    {name: 'Subject', href: '/subjects', icon: AdjustmentsHorizontalIcon, current: false, permission: ["admin", "teacher"]},
 ]
