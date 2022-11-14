@@ -54,7 +54,7 @@ export default function AttendanceTable({attendances, total}: IAttendanceList) {
         return (
             <div>
                 <DataTable<IAttendances>
-                    editAction={true}
+                    editAction={false}
                     total={total}
                     endpoint="/attendances"
                     items={attendances}
