@@ -34,8 +34,8 @@ async function findById({path, token}: params) {
     if (respond.ok) {
         return respond.json()
     } else {
-        console.log('error', respond)
-        return { data: {}}
+        //console.log('error', respond)
+        return { data: respond.json()}
     }
 }
 

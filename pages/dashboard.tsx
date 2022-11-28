@@ -194,11 +194,21 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     const data = await fetchWrapper.findById({path: userApi, token: accessToken}).then(resp => resp.data)
 
+    if (data.code === 401) {
+
+        return {
+            redirect: {
+                destination: '/login',
+                permanent: false,
+            },
+        }
+    }
+
     const attendances = await fetchWrapper.findById({path: apiAttendances, token: accessToken})
+
 
     // Pass data to the page via props
     return {props: {total: data.total, activeCount: data.activeCount, user: data.user,attendances : attendances.data, attendanceTotal: attendances.total}}
-    //return {props: { total: 0, activeCount: 0, user: {}}}
 }
 
 Dashboard.getLayout = function getLayout(page: ReactElement) {
