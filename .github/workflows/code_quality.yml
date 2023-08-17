@@ -8,8 +8,7 @@ on:
       - 'releases/*'
 
 jobs:
-  qodana:
-    needs: build
+  qodana:  
     runs-on: ubuntu-latest
     permissions:
       contents: write
